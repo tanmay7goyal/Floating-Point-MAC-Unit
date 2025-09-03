@@ -1,0 +1,1915 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.38 (git sha1 543faed9c8c, clang++ 17.0.6 -fPIC -Os)
+
+[TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `exec' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `read' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
+
+1. Executing Liberty frontend: /home/running_courses/EE671/EE671_44/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /openlane/designs/mac/src/mac.v
+Parsing SystemVerilog input from `/openlane/designs/mac/src/mac.v' to AST representation.
+Storing AST representation for module `$abstract\mac'.
+Storing AST representation for module `$abstract\Multiplier'.
+Storing AST representation for module `$abstract\zeroDetect'.
+Storing AST representation for module `$abstract\full_adder'.
+Storing AST representation for module `$abstract\ripple_carry_adder_8bit'.
+Storing AST representation for module `$abstract\TreeMultiplier'.
+Storing AST representation for module `$abstract\customAdder'.
+Storing AST representation for module `$abstract\BkAdder16'.
+Storing AST representation for module `$abstract\GroupGPBlock'.
+Storing AST representation for module `$abstract\PgGenerationBlock'.
+Storing AST representation for module `$abstract\Mux'.
+Storing AST representation for module `$abstract\Mux8bit'.
+Storing AST representation for module `$abstract\float_add'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\mac'.
+Generating RTLIL representation for module `\mac'.
+
+4.1. Analyzing design hierarchy..
+Top module:  \mac
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\float_add'.
+Generating RTLIL representation for module `\float_add'.
+
+4.3. Executing AST frontend in derive mode using pre-parsed AST for module `\Multiplier'.
+Generating RTLIL representation for module `\Multiplier'.
+/openlane/designs/mac/src/mac.v:97: Warning: Identifier `\comp_out' is implicitly declared.
+
+4.4. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+
+4.5. Executing AST frontend in derive mode using pre-parsed AST for module `\Mux'.
+Generating RTLIL representation for module `\Mux'.
+
+4.6. Executing AST frontend in derive mode using pre-parsed AST for module `\Mux8bit'.
+Generating RTLIL representation for module `\Mux8bit'.
+
+4.7. Executing AST frontend in derive mode using pre-parsed AST for module `\zeroDetect'.
+Generating RTLIL representation for module `\zeroDetect'.
+
+4.8. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_carry_adder_8bit'.
+Generating RTLIL representation for module `\ripple_carry_adder_8bit'.
+
+4.9. Executing AST frontend in derive mode using pre-parsed AST for module `\TreeMultiplier'.
+Generating RTLIL representation for module `\TreeMultiplier'.
+
+4.10. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:         \TreeMultiplier
+
+4.11. Executing AST frontend in derive mode using pre-parsed AST for module `\customAdder'.
+Generating RTLIL representation for module `\customAdder'.
+Reprocessing module TreeMultiplier because instantiated module customAdder has become available.
+Generating RTLIL representation for module `\TreeMultiplier'.
+
+4.12. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+Generating RTLIL representation for module `\full_adder'.
+
+4.13. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:             \full_adder
+Used module:         \TreeMultiplier
+Used module:             \customAdder
+
+4.14. Executing AST frontend in derive mode using pre-parsed AST for module `\BkAdder16'.
+Generating RTLIL representation for module `\BkAdder16'.
+
+4.15. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:             \full_adder
+Used module:         \TreeMultiplier
+Used module:             \customAdder
+Used module:                 \BkAdder16
+
+4.16. Executing AST frontend in derive mode using pre-parsed AST for module `\GroupGPBlock'.
+Generating RTLIL representation for module `\GroupGPBlock'.
+
+4.17. Executing AST frontend in derive mode using pre-parsed AST for module `\PgGenerationBlock'.
+Generating RTLIL representation for module `\PgGenerationBlock'.
+
+4.18. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:             \full_adder
+Used module:         \TreeMultiplier
+Used module:             \customAdder
+Used module:                 \BkAdder16
+Used module:                     \GroupGPBlock
+Used module:                     \PgGenerationBlock
+
+4.19. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:             \full_adder
+Used module:         \TreeMultiplier
+Used module:             \customAdder
+Used module:                 \BkAdder16
+Used module:                     \GroupGPBlock
+Used module:                     \PgGenerationBlock
+Removing unused module `$abstract\float_add'.
+Removing unused module `$abstract\Mux8bit'.
+Removing unused module `$abstract\Mux'.
+Removing unused module `$abstract\PgGenerationBlock'.
+Removing unused module `$abstract\GroupGPBlock'.
+Removing unused module `$abstract\BkAdder16'.
+Removing unused module `$abstract\customAdder'.
+Removing unused module `$abstract\TreeMultiplier'.
+Removing unused module `$abstract\ripple_carry_adder_8bit'.
+Removing unused module `$abstract\full_adder'.
+Removing unused module `$abstract\zeroDetect'.
+Removing unused module `$abstract\Multiplier'.
+Removing unused module `$abstract\mac'.
+Removed 13 unused modules.
+Mapping positional arguments of cell BkAdder16.instance15_0 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance15_8 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance7_0 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance15_12 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance11_8 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance7_4 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance3_0 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance15_14 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance13_12 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance11_10 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance9_8 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance7_6 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance5_4 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance3_2 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance1_0 (GroupGPBlock).
+Mapping positional arguments of cell BkAdder16.instance1 (PgGenerationBlock).
+Mapping positional arguments of cell TreeMultiplier.U23 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U22 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U21 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U20 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U19 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U18 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U17 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U16 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U15 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U14 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U13 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U12 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U11 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U10 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U9 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U8 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U7 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U6 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U5 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U4 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U3 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U2 (customAdder).
+Mapping positional arguments of cell TreeMultiplier.U1 (customAdder).
+Mapping positional arguments of cell customAdder.u3 (BkAdder16).
+Mapping positional arguments of cell customAdder.u2 (BkAdder16).
+Mapping positional arguments of cell customAdder.u1 (BkAdder16).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa7 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa6 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa5 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa4 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa3 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa2 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa1 (full_adder).
+Mapping positional arguments of cell ripple_carry_adder_8bit.fa0 (full_adder).
+Mapping positional arguments of cell Multiplier.um1 (Mux).
+Mapping positional arguments of cell Multiplier.um2 (Mux8bit).
+Mapping positional arguments of cell Multiplier.Uz1 (zeroDetect).
+Mapping positional arguments of cell Multiplier.ua2 (ripple_carry_adder_8bit).
+Mapping positional arguments of cell Multiplier.ua1 (ripple_carry_adder_8bit).
+Mapping positional arguments of cell Multiplier.U1 (TreeMultiplier).
+Mapping positional arguments of cell mac.F1 (float_add).
+Mapping positional arguments of cell mac.M1 (Multiplier).
+
+5. Generating Graphviz representation of design.
+Writing dot description to `/openlane/designs/mac/runs/full_guide/tmp/synthesis/hierarchy.dot'.
+Dumping module mac to page 1.
+Renaming module mac to mac.
+
+6. Executing TRIBUF pass.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:             \full_adder
+Used module:         \TreeMultiplier
+Used module:             \customAdder
+Used module:                 \BkAdder16
+Used module:                     \GroupGPBlock
+Used module:                     \PgGenerationBlock
+
+7.2. Analyzing design hierarchy..
+Top module:  \mac
+Used module:     \float_add
+Used module:     \Multiplier
+Used module:         \Mux
+Used module:         \Mux8bit
+Used module:         \zeroDetect
+Used module:         \ripple_carry_adder_8bit
+Used module:             \full_adder
+Used module:         \TreeMultiplier
+Used module:             \customAdder
+Used module:                 \BkAdder16
+Used module:                     \GroupGPBlock
+Used module:                     \PgGenerationBlock
+Removed 0 unused modules.
+
+8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/openlane/designs/mac/src/mac.v:41$1 in module mac.
+Removed a total of 0 dead cases.
+
+10. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 49 assignments to connections.
+
+11. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\mac.$proc$/openlane/designs/mac/src/mac.v:16$5'.
+  Set init value: \accumulator = 0
+Found init rule in `\mac.$proc$/openlane/designs/mac/src/mac.v:8$4'.
+  Set init value: \In2_reg = 0
+Found init rule in `\mac.$proc$/openlane/designs/mac/src/mac.v:7$3'.
+  Set init value: \In1_reg = 0
+
+12. Executing PROC_ARST pass (detect async resets in processes).
+
+13. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+14. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mac.$proc$/openlane/designs/mac/src/mac.v:27$6'.
+Creating decoders for process `\mac.$proc$/openlane/designs/mac/src/mac.v:16$5'.
+Creating decoders for process `\mac.$proc$/openlane/designs/mac/src/mac.v:8$4'.
+Creating decoders for process `\mac.$proc$/openlane/designs/mac/src/mac.v:7$3'.
+Creating decoders for process `\mac.$proc$/openlane/designs/mac/src/mac.v:41$1'.
+     1/3: $0\accumulator[31:0]
+     2/3: $0\In2_reg[31:0]
+     3/3: $0\In1_reg[31:0]
+Creating decoders for process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+
+15. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\mac.\out_reg' from process `\mac.$proc$/openlane/designs/mac/src/mac.v:27$6'.
+No latch inferred for signal `\TreeMultiplier.\S_m[0]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[1]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[2]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[3]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[4]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[5]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[6]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[7]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[8]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[9]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[10]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\S_m[11]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Q_m[0]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Q_m[1]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Q_m[2]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Q_m[3]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Q_m[4]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Q_m[5]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Qn_m[0]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Qn_m[1]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\Qn_m[2]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[0]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[1]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[2]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[3]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[4]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[5]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[6]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[7]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[8]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[9]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[10]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[11]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[12]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[13]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[14]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[15]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[16]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[17]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[18]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[19]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[20]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[21]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[22]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+No latch inferred for signal `\TreeMultiplier.\AB_m[23]' from process `\TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+
+16. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mac.\In1_reg' using process `\mac.$proc$/openlane/designs/mac/src/mac.v:41$1'.
+  created $dff cell `$procdff$286' with positive edge clock.
+Creating register for signal `\mac.\In2_reg' using process `\mac.$proc$/openlane/designs/mac/src/mac.v:41$1'.
+  created $dff cell `$procdff$287' with positive edge clock.
+Creating register for signal `\mac.\accumulator' using process `\mac.$proc$/openlane/designs/mac/src/mac.v:41$1'.
+  created $dff cell `$procdff$288' with positive edge clock.
+
+17. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+18. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `mac.$proc$/openlane/designs/mac/src/mac.v:27$6'.
+Removing empty process `mac.$proc$/openlane/designs/mac/src/mac.v:16$5'.
+Removing empty process `mac.$proc$/openlane/designs/mac/src/mac.v:8$4'.
+Removing empty process `mac.$proc$/openlane/designs/mac/src/mac.v:7$3'.
+Found and cleaned up 1 empty switch in `\mac.$proc$/openlane/designs/mac/src/mac.v:41$1'.
+Removing empty process `mac.$proc$/openlane/designs/mac/src/mac.v:41$1'.
+Removing empty process `TreeMultiplier.$proc$/openlane/designs/mac/src/mac.v:0$183'.
+Cleaned up 1 empty switch.
+
+19. Executing CHECK pass (checking for obvious problems).
+Checking module mac...
+Checking module GroupGPBlock...
+Checking module BkAdder16...
+Checking module TreeMultiplier...
+Checking module full_adder...
+Checking module customAdder...
+Checking module ripple_carry_adder_8bit...
+Checking module zeroDetect...
+Checking module Mux8bit...
+Checking module Mux...
+Checking module Multiplier...
+Checking module float_add...
+Checking module PgGenerationBlock...
+Found and reported 0 problems.
+
+20. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~3 debug messages>
+Optimizing module GroupGPBlock.
+Optimizing module BkAdder16.
+Optimizing module TreeMultiplier.
+<suppressed ~25 debug messages>
+Optimizing module full_adder.
+Optimizing module customAdder.
+Optimizing module ripple_carry_adder_8bit.
+Optimizing module zeroDetect.
+Optimizing module Mux8bit.
+<suppressed ~2 debug messages>
+Optimizing module Mux.
+<suppressed ~2 debug messages>
+Optimizing module Multiplier.
+<suppressed ~1 debug messages>
+Optimizing module float_add.
+<suppressed ~2 debug messages>
+Optimizing module PgGenerationBlock.
+
+21. Executing FLATTEN pass (flatten design).
+Deleting now unused module GroupGPBlock.
+Deleting now unused module BkAdder16.
+Deleting now unused module TreeMultiplier.
+Deleting now unused module full_adder.
+Deleting now unused module customAdder.
+Deleting now unused module ripple_carry_adder_8bit.
+Deleting now unused module zeroDetect.
+Deleting now unused module Mux8bit.
+Deleting now unused module Mux.
+Deleting now unused module Multiplier.
+Deleting now unused module float_add.
+Deleting now unused module PgGenerationBlock.
+<suppressed ~58 debug messages>
+
+22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~336 debug messages>
+
+23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 742 unused cells and 4040 unused wires.
+<suppressed ~753 debug messages>
+
+24. Executing OPT pass (performing simple optimizations).
+
+24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+24.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:426$33: \F1.mantissa_result -> { 1'0 \F1.mantissa_result [23:0] }
+      Replacing known input bits on port B of cell $flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:426$33: { 1'0 \F1.mantissa_result [24:1] } -> { 2'01 \F1.mantissa_result [23:1] }
+      Replacing known input bits on port A of cell $flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:432$38: { \F1.normalized_mantissa [23:0] 1'0 } -> { 1'0 \F1.normalized_mantissa [22:0] 1'0 }
+      Replacing known input bits on port B of cell $flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:432$38: \F1.normalized_mantissa -> { \F1.normalized_mantissa [24] 1'1 \F1.normalized_mantissa [22:0] }
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:415$23.
+Removed 1 multiplexer ports.
+<suppressed ~35 debug messages>
+
+24.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+24.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+24.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+24.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 0 unused cells and 36 unused wires.
+<suppressed ~31 debug messages>
+
+24.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+24.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+24.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+24.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+24.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+24.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+24.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+24.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+24.16. Finished OPT passes. (There is nothing left to do.)
+
+25. Executing FSM pass (extract and optimize FSM).
+
+25.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+25.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+25.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+25.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+25.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+25.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+25.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+25.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+26. Executing OPT pass (performing simple optimizations).
+
+26.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+26.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+26.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+26.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+26.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+26.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$288 ($dff) from module mac (D = { \F1.normalized_sign \add_Out [30:23] \F1.final_mantissa [22:1] }, Q = \accumulator [31:1], rval = 31'0000000000000000000000000000000).
+Adding SRST signal on $procdff$288 ($dff) from module mac (D = \F1.normalized_mantissa [0], Q = \accumulator [0], rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$293 ($sdff) from module mac (D = \F1.normalized_sign, Q = \accumulator [31]).
+Adding SRST signal on $procdff$287 ($dff) from module mac (D = \In2, Q = \In2_reg, rval = 0).
+Adding SRST signal on $procdff$286 ($dff) from module mac (D = \In1, Q = \In1_reg, rval = 0).
+
+26.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 3 unused cells and 3 unused wires.
+<suppressed ~4 debug messages>
+
+26.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~1 debug messages>
+
+26.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+26.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+26.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+26.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+26.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+26.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+26.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+26.16. Finished OPT passes. (There is nothing left to do.)
+
+27. Executing WREDUCE pass (reducing word size of cells).
+Removed top 13 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:197$207 ($mux).
+Removed top 24 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:186$185 ($mux).
+Removed top 7 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:203$219 ($mux).
+Removed top 23 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:187$187 ($mux).
+Removed top 2 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:208$229 ($mux).
+Removed top 22 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:188$189 ($mux).
+Removed top 12 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:198$209 ($mux).
+Removed top 21 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:189$191 ($mux).
+Removed top 3 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:207$227 ($mux).
+Removed top 20 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:190$193 ($mux).
+Removed top 9 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:201$215 ($mux).
+Removed top 19 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:191$195 ($mux).
+Removed top 4 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:206$225 ($mux).
+Removed top 18 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:192$197 ($mux).
+Removed top 11 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:199$211 ($mux).
+Removed top 17 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:193$199 ($mux).
+Removed top 5 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:205$223 ($mux).
+Removed top 16 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:194$201 ($mux).
+Removed top 8 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:202$217 ($mux).
+Removed top 15 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:195$203 ($mux).
+Removed top 6 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:204$221 ($mux).
+Removed top 14 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:196$205 ($mux).
+Removed top 10 bits (of 48) from mux cell mac.$flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:200$213 ($mux).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U1.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U1.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U1.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 8 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U1.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 7 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U1.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 7 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U1.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U1.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U1.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U1.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 8 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U1.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 7 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U1.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 7 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U1.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U2.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U2.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U2.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 6 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U2.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 5 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U2.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 5 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U2.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U2.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U2.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U2.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 6 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U2.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 5 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U2.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 5 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U2.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U3.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U3.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U3.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 4 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U3.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 3 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U3.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 3 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U3.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U3.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U3.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U3.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 4 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U3.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 3 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U3.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 3 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U3.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U4.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U4.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U4.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 2 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U4.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U4.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U4.\u2.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U4.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U4.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U4.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 2 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U4.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U4.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U4.\u2.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U5.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U5.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U5.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U5.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U5.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 15 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U5.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 14 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U6.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 13 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U6.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 13 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U6.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 14 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U6.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 13 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U6.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 13 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U6.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 12 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U7.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 11 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U7.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 11 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U7.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 12 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U7.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 11 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U7.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 11 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U7.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 10 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U8.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 9 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U8.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 9 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U8.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 10 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U8.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 9 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U8.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 9 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U8.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 8 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U9.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 7 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U9.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 7 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U9.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 8 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U9.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 7 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U9.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 7 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U9.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 6 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U10.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 5 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U10.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 5 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U10.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 6 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U10.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 5 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U10.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 5 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U10.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 4 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U11.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 3 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U11.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 3 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U11.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 4 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U11.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 3 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U11.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 3 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U11.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 2 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U12.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U12.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U12.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 2 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U12.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U12.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U12.\u3.\instance1.$xor$/openlane/designs/mac/src/mac.v:353$275 ($xor).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U13.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U13.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U13.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U14.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U14.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U14.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U15.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U15.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U15.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U16.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U16.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U16.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U17.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U17.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U17.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U18.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U18.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U18.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U19.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U19.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U19.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U20.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U20.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U20.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U21.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U21.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U21.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U22.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U22.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U22.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port Y of cell mac.$flatten\M1.\U1.\U23.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U23.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 1 bits (of 16) from port B of cell mac.$flatten\M1.\U1.\U23.\u3.\instance1.$and$/openlane/designs/mac/src/mac.v:354$276 ($and).
+Removed top 24 bits (of 32) from mux cell mac.$flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:433$41 ($mux).
+Removed top 31 bits (of 32) from port B of cell mac.$flatten\F1.$sub$/openlane/designs/mac/src/mac.v:433$39 ($sub).
+Removed top 24 bits (of 32) from port Y of cell mac.$flatten\F1.$sub$/openlane/designs/mac/src/mac.v:433$39 ($sub).
+Removed top 2 bits (of 25) from mux cell mac.$flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:432$38 ($mux).
+Removed top 24 bits (of 32) from mux cell mac.$flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:427$36 ($mux).
+Removed top 31 bits (of 32) from port B of cell mac.$flatten\F1.$add$/openlane/designs/mac/src/mac.v:427$34 ($add).
+Removed top 24 bits (of 32) from port Y of cell mac.$flatten\F1.$add$/openlane/designs/mac/src/mac.v:427$34 ($add).
+Removed top 1 bits (of 25) from mux cell mac.$flatten\F1.$ternary$/openlane/designs/mac/src/mac.v:426$33 ($mux).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U1.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U2.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U3.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U4.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 15 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U5.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 13 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U6.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 11 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U7.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 9 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U8.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 7 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U9.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 5 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U10.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 3 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U11.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 1 bits (of 16) from port A of cell mac.$flatten\M1.\U1.\U12.\u3.$xor$/openlane/designs/mac/src/mac.v:332$271 ($xor).
+Removed top 24 bits (of 32) from wire mac.$flatten\F1.$add$/openlane/designs/mac/src/mac.v:427$34_Y.
+Removed top 26 bits (of 32) from wire mac.$flatten\F1.$sub$/openlane/designs/mac/src/mac.v:433$39_Y.
+
+28. Executing PEEPOPT pass (run peephole optimizers).
+
+29. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+30. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module mac:
+  creating $macc model for $flatten\F1.$add$/openlane/designs/mac/src/mac.v:415$22 ($add).
+  creating $macc model for $flatten\F1.$add$/openlane/designs/mac/src/mac.v:427$34 ($add).
+  creating $macc model for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$8 ($sub).
+  creating $macc model for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$9 ($sub).
+  creating $macc model for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$26 ($sub).
+  creating $macc model for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$27 ($sub).
+  creating $macc model for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:433$39 ($sub).
+  creating $alu model for $macc $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:433$39.
+  creating $alu model for $macc $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$27.
+  creating $alu model for $macc $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$26.
+  creating $alu model for $macc $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$9.
+  creating $alu model for $macc $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$8.
+  creating $alu model for $macc $flatten\F1.$add$/openlane/designs/mac/src/mac.v:427$34.
+  creating $alu model for $macc $flatten\F1.$add$/openlane/designs/mac/src/mac.v:415$22.
+  creating $alu model for $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:402$7 ($gt): merged with $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$8.
+  creating $alu model for $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:408$18 ($gt): merged with $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$8.
+  creating $alu model for $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:417$25 ($gt): merged with $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$27.
+  creating $alu cell for $flatten\F1.$add$/openlane/designs/mac/src/mac.v:427$34: $auto$alumacc.cc:485:replace_alu$305
+  creating $alu cell for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$8, $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:402$7, $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:408$18: $auto$alumacc.cc:485:replace_alu$308
+  creating $alu cell for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:402$9: $auto$alumacc.cc:485:replace_alu$319
+  creating $alu cell for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$26: $auto$alumacc.cc:485:replace_alu$322
+  creating $alu cell for $flatten\F1.$add$/openlane/designs/mac/src/mac.v:415$22: $auto$alumacc.cc:485:replace_alu$325
+  creating $alu cell for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:417$27, $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:417$25: $auto$alumacc.cc:485:replace_alu$328
+  creating $alu cell for $flatten\F1.$sub$/openlane/designs/mac/src/mac.v:433$39: $auto$alumacc.cc:485:replace_alu$333
+  created 7 $alu and 0 $macc cells.
+
+31. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module mac that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\F1.$shr$/openlane/designs/mac/src/mac.v:408$19 ($shr):
+    Found 1 activation_patterns using ctrl signal $auto$rtlil.cc:2476:Not$312.
+    Found 1 candidates: $flatten\F1.$shr$/openlane/designs/mac/src/mac.v:407$16
+    Analyzing resource sharing with $flatten\F1.$shr$/openlane/designs/mac/src/mac.v:407$16 ($shr):
+      Found 1 activation_patterns using ctrl signal $auto$rtlil.cc:2476:Not$318.
+      Forbidden control signals for this pair of cells: { \F1.mantissa_result [24] \F1.normalized_mantissa [23] $flatten\F1.$gt$/openlane/designs/mac/src/mac.v:417$25_Y }
+      Activation pattern for cell $flatten\F1.$shr$/openlane/designs/mac/src/mac.v:408$19: $auto$rtlil.cc:2476:Not$312 = 1'0
+      Activation pattern for cell $flatten\F1.$shr$/openlane/designs/mac/src/mac.v:407$16: $auto$rtlil.cc:2476:Not$318 = 1'0
+      Size of SAT problem: 0 cells, 44345 variables, 116585 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $auto$rtlil.cc:2476:Not$318 $auto$rtlil.cc:2476:Not$312 } = 2'00
+  Analyzing resource sharing options for $flatten\F1.$shr$/openlane/designs/mac/src/mac.v:407$16 ($shr):
+    Found 1 activation_patterns using ctrl signal $auto$rtlil.cc:2476:Not$318.
+    No candidates found.
+
+32. Executing OPT pass (performing simple optimizations).
+
+32.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~609 debug messages>
+
+32.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+32.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+32.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+32.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+32.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+32.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 28 unused cells and 262 unused wires.
+<suppressed ~29 debug messages>
+
+32.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+32.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+32.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+32.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+32.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+32.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+32.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+32.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+32.16. Finished OPT passes. (There is nothing left to do.)
+
+33. Executing MEMORY pass.
+
+33.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+33.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+33.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+33.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+33.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+33.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+33.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+33.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+33.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+33.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+34. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+35. Executing OPT pass (performing simple optimizations).
+
+35.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~1401 debug messages>
+
+35.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+35.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+35.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 10 unused cells and 341 unused wires.
+<suppressed ~11 debug messages>
+
+35.5. Finished fast OPT passes.
+
+36. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+37. Executing OPT pass (performing simple optimizations).
+
+37.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~9 debug messages>
+
+37.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+37.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+37.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:187$187:
+      Old ports: A=25'0000000000000000000000000, B={ 1'1 \In1_reg [22:0] 1'0 }, Y=\M1.U1.AB_m[1] [24:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[1] [24:1]
+      New connections: \M1.U1.AB_m[1] [0] = 1'0
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:188$189:
+      Old ports: A=26'00000000000000000000000000, B={ 1'1 \In1_reg [22:0] 2'00 }, Y=\M1.U1.AB_m[2] [25:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[2] [25:2]
+      New connections: \M1.U1.AB_m[2] [1:0] = 2'00
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:189$191:
+      Old ports: A=27'000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 3'000 }, Y=\M1.U1.AB_m[3] [26:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[3] [26:3]
+      New connections: \M1.U1.AB_m[3] [2:0] = 3'000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:190$193:
+      Old ports: A=28'0000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 4'0000 }, Y=\M1.U1.AB_m[4] [27:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[4] [27:4]
+      New connections: \M1.U1.AB_m[4] [3:0] = 4'0000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:191$195:
+      Old ports: A=29'00000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 5'00000 }, Y=\M1.U1.AB_m[5] [28:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[5] [28:5]
+      New connections: \M1.U1.AB_m[5] [4:0] = 5'00000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:192$197:
+      Old ports: A=30'000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 6'000000 }, Y=\M1.U1.AB_m[6] [29:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[6] [29:6]
+      New connections: \M1.U1.AB_m[6] [5:0] = 6'000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:193$199:
+      Old ports: A=31'0000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 7'0000000 }, Y=\M1.U1.AB_m[7] [30:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[7] [30:7]
+      New connections: \M1.U1.AB_m[7] [6:0] = 7'0000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:194$201:
+      Old ports: A=0, B={ 1'1 \In1_reg [22:0] 8'00000000 }, Y=\M1.U1.AB_m[8] [31:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[8] [31:8]
+      New connections: \M1.U1.AB_m[8] [7:0] = 8'00000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:195$203:
+      Old ports: A=33'000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 9'000000000 }, Y=\M1.U1.AB_m[9] [32:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[9] [32:9]
+      New connections: \M1.U1.AB_m[9] [8:0] = 9'000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:196$205:
+      Old ports: A=34'0000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 10'0000000000 }, Y=\M1.U1.AB_m[10] [33:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[10] [33:10]
+      New connections: \M1.U1.AB_m[10] [9:0] = 10'0000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:197$207:
+      Old ports: A=35'00000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 11'00000000000 }, Y=\M1.U1.AB_m[11] [34:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[11] [34:11]
+      New connections: \M1.U1.AB_m[11] [10:0] = 11'00000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:198$209:
+      Old ports: A=36'000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 12'000000000000 }, Y=\M1.U1.AB_m[12] [35:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[12] [35:12]
+      New connections: \M1.U1.AB_m[12] [11:0] = 12'000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:199$211:
+      Old ports: A=37'0000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 13'0000000000000 }, Y=\M1.U1.AB_m[13] [36:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[13] [36:13]
+      New connections: \M1.U1.AB_m[13] [12:0] = 13'0000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:200$213:
+      Old ports: A=38'00000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 14'00000000000000 }, Y=\M1.U1.AB_m[14] [37:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[14] [37:14]
+      New connections: \M1.U1.AB_m[14] [13:0] = 14'00000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:201$215:
+      Old ports: A=39'000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 15'000000000000000 }, Y=\M1.U1.AB_m[15] [38:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[15] [38:15]
+      New connections: \M1.U1.AB_m[15] [14:0] = 15'000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:202$217:
+      Old ports: A=40'0000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 16'0000000000000000 }, Y=\M1.U1.AB_m[16] [39:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[16] [39:16]
+      New connections: \M1.U1.AB_m[16] [15:0] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:203$219:
+      Old ports: A=41'00000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 17'00000000000000000 }, Y=\M1.U1.AB_m[17] [40:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[17] [40:17]
+      New connections: \M1.U1.AB_m[17] [16:0] = 17'00000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:204$221:
+      Old ports: A=42'000000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 18'000000000000000000 }, Y=\M1.U1.AB_m[18] [41:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[18] [41:18]
+      New connections: \M1.U1.AB_m[18] [17:0] = 18'000000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:205$223:
+      Old ports: A=43'0000000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 19'0000000000000000000 }, Y=\M1.U1.AB_m[19] [42:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[19] [42:19]
+      New connections: \M1.U1.AB_m[19] [18:0] = 19'0000000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:206$225:
+      Old ports: A=44'00000000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 20'00000000000000000000 }, Y=\M1.U1.AB_m[20] [43:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[20] [43:20]
+      New connections: \M1.U1.AB_m[20] [19:0] = 20'00000000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:207$227:
+      Old ports: A=45'000000000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 21'000000000000000000000 }, Y=\M1.U1.AB_m[21] [44:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[21] [44:21]
+      New connections: \M1.U1.AB_m[21] [20:0] = 21'000000000000000000000
+    Consolidated identical input bits for $mux cell $flatten\M1.\U1.$ternary$/openlane/designs/mac/src/mac.v:208$229:
+      Old ports: A=46'0000000000000000000000000000000000000000000000, B={ 1'1 \In1_reg [22:0] 22'0000000000000000000000 }, Y=\M1.U1.AB_m[22] [45:0]
+      New ports: A=24'000000000000000000000000, B={ 1'1 \In1_reg [22:0] }, Y=\M1.U1.AB_m[22] [45:22]
+      New connections: \M1.U1.AB_m[22] [21:0] = 22'0000000000000000000000
+  Optimizing cells in module \mac.
+Performed a total of 22 changes.
+
+37.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+<suppressed ~396 debug messages>
+Removed a total of 132 cells.
+
+37.6. Executing OPT_SHARE pass.
+
+37.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+37.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 0 unused cells and 52 unused wires.
+<suppressed ~1 debug messages>
+
+37.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~1597 debug messages>
+
+37.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+37.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+37.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+37.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+<suppressed ~66 debug messages>
+Removed a total of 22 cells.
+
+37.14. Executing OPT_SHARE pass.
+
+37.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+37.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 74 unused cells and 616 unused wires.
+<suppressed ~75 debug messages>
+
+37.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~75 debug messages>
+
+37.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+37.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+37.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+37.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+37.22. Executing OPT_SHARE pass.
+
+37.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+37.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+37.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+37.26. Finished OPT passes. (There is nothing left to do.)
+
+38. Executing TECHMAP pass (map to technology primitives).
+
+38.1. Executing Verilog-2005 frontend: /nix/store/sx2v0i73mn1ih2z1nk61pm9n5gjgpidy-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/sx2v0i73mn1ih2z1nk61pm9n5gjgpidy-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+38.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using template $paramod$a7a1d5fc4563c49b9a54941942b1beedd64a98db\_90_alu for cells of type $alu.
+Using template $paramod$403a3c2fa431a154c52a6a5429d7a6260b5d144f\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$constmap:c405201d267c50179e77021e426cb047cc33c577$paramod$532ed33aa48e40f5030f3f04e98e15a19c73fe90\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000011001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~3941 debug messages>
+
+39. Executing OPT pass (performing simple optimizations).
+
+39.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~252 debug messages>
+
+39.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+<suppressed ~117 debug messages>
+Removed a total of 39 cells.
+
+39.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+39.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 48 unused cells and 246 unused wires.
+<suppressed ~49 debug messages>
+
+39.5. Finished fast OPT passes.
+
+40. Executing ABC pass (technology mapping using ABC).
+
+40.1. Extracting gate netlist of module `\mac' to `<abc-temp-dir>/input.blif'..
+Extracted 5879 gates and 5978 wires to a netlist network with 97 inputs and 34 outputs.
+
+40.1.1. Executing ABC.
+Running ABC command: "/nix/store/wq2q0njg3sx8wvj2akz7x1qxwyrv9xlr-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+40.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:      330
+ABC RESULTS:               AND cells:      601
+ABC RESULTS:              XNOR cells:      504
+ABC RESULTS:               NOR cells:      311
+ABC RESULTS:             ORNOT cells:       99
+ABC RESULTS:                OR cells:      556
+ABC RESULTS:            ANDNOT cells:     2181
+ABC RESULTS:               XOR cells:      751
+ABC RESULTS:               MUX cells:      370
+ABC RESULTS:               NOT cells:      358
+ABC RESULTS:        internal signals:     5847
+ABC RESULTS:           input signals:       97
+ABC RESULTS:          output signals:       34
+Removing temp directory.
+
+41. Executing OPT pass (performing simple optimizations).
+
+41.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~2 debug messages>
+
+41.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+41.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+41.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 1 unused cells and 2296 unused wires.
+<suppressed ~872 debug messages>
+
+41.5. Finished fast OPT passes.
+
+42. Executing HIERARCHY pass (managing design hierarchy).
+
+42.1. Analyzing design hierarchy..
+Top module:  \mac
+
+42.2. Analyzing design hierarchy..
+Top module:  \mac
+Removed 0 unused modules.
+
+43. Printing statistics.
+
+=== mac ===
+
+   Number of wires:              12654
+   Number of wire bits:          31569
+   Number of public wires:        6627
+   Number of public wire bits:   25542
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6155
+     $_ANDNOT_                    2181
+     $_AND_                        601
+     $_MUX_                        370
+     $_NAND_                       330
+     $_NOR_                        311
+     $_NOT_                        357
+     $_ORNOT_                       99
+     $_OR_                         556
+     $_SDFFE_PN0P_                   1
+     $_SDFF_PN0_                    95
+     $_XNOR_                       504
+     $_XOR_                        750
+
+44. Executing CHECK pass (checking for obvious problems).
+Checking module mac...
+Found and reported 0 problems.
+
+45. Generating Graphviz representation of design.
+Writing dot description to `/openlane/designs/mac/runs/full_guide/tmp/synthesis/post_techmap.dot'.
+Dumping module mac to page 1.
+
+46. Executing SHARE pass (SAT-based resource sharing).
+
+47. Executing OPT pass (performing simple optimizations).
+
+47.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+<suppressed ~1 debug messages>
+
+47.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+47.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+47.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+47.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+47.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+47.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+47.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+47.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+47.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+47.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac.
+Performed a total of 0 changes.
+
+47.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac'.
+Removed a total of 0 cells.
+
+47.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+47.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+
+47.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac.
+
+47.16. Finished OPT passes. (There is nothing left to do.)
+
+48. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 0 unused cells and 6588 unused wires.
+<suppressed ~6588 debug messages>
+
+49. Printing statistics.
+
+=== mac ===
+
+   Number of wires:               6065
+   Number of wire bits:           6275
+   Number of public wires:          39
+   Number of public wire bits:     249
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6154
+     $_ANDNOT_                    2181
+     $_AND_                        601
+     $_MUX_                        369
+     $_NAND_                       330
+     $_NOR_                        311
+     $_NOT_                        357
+     $_ORNOT_                       99
+     $_OR_                         556
+     $_SDFFE_PN0P_                   1
+     $_SDFF_PN0_                    95
+     $_XNOR_                       504
+     $_XOR_                        750
+
+mapping tbuf
+
+50. Executing TECHMAP pass (map to technology primitives).
+
+50.1. Executing Verilog-2005 frontend: /home/running_courses/EE671/EE671_44/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/home/running_courses/EE671/EE671_44/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_TBUF_'.
+Successfully finished Verilog frontend.
+
+50.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+51. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+52. Executing TECHMAP pass (map to technology primitives).
+
+52.1. Executing Verilog-2005 frontend: /home/running_courses/EE671/EE671_44/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/home/running_courses/EE671/EE671_44/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+52.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+53. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+54. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+54.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\mac':
+  mapped 96 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_2 cells.
+
+55. Printing statistics.
+
+=== mac ===
+
+   Number of wires:               6162
+   Number of wire bits:           6372
+   Number of public wires:          39
+   Number of public wire bits:     249
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6251
+     $_ANDNOT_                    2181
+     $_AND_                        601
+     $_MUX_                        466
+     $_NAND_                       330
+     $_NOR_                        311
+     $_NOT_                        357
+     $_ORNOT_                       99
+     $_OR_                         556
+     $_XNOR_                       504
+     $_XOR_                        750
+     sky130_fd_sc_hd__dfxtp_2       96
+
+[INFO]: USING STRATEGY AREA 0
+
+56. Executing ABC pass (technology mapping using ABC).
+
+56.1. Extracting gate netlist of module `\mac' to `/tmp/yosys-abc-y9Zq7g/input.blif'..
+Extracted 6155 gates and 6317 wires to a netlist network with 161 inputs and 96 outputs.
+
+56.1.1. Executing ABC.
+Running ABC command: "/nix/store/wq2q0njg3sx8wvj2akz7x1qxwyrv9xlr-yosys-abc/bin/abc" -s -f /tmp/yosys-abc-y9Zq7g/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-y9Zq7g/abc.script".
+ABC: 
+ABC: + read_blif /tmp/yosys-abc-y9Zq7g/input.blif 
+ABC: + read_lib -w /openlane/designs/mac/runs/full_guide/tmp/synthesis/trimmed.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.06 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130A_merged" from "/openlane/designs/mac/runs/full_guide/tmp/synthesis/trimmed.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use).  Time =     0.07 sec
+ABC: Memory =    9.54 MB. Time =     0.07 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /openlane/designs/mac/runs/full_guide/tmp/synthesis/synthesis.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2".
+ABC: Setting output load to be 33.442001.
+ABC: + read_constr /openlane/designs/mac/runs/full_guide/tmp/synthesis/synthesis.sdc 
+ABC: + fx 
+ABC: + mfs 
+ABC: + strash 
+ABC: + drf -l 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drf -l 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + drf -l -z 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + retime -D -D 10000 -M 5 
+ABC: + scleanup 
+ABC: Error: The network is combinational.
+ABC: + fraig_store 
+ABC: + balance 
+ABC: + fraig_store 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drf -l 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + drf -l -z 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + fraig_store 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drf -l 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + drf -l -z 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + fraig_store 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drf -l 
+ABC: + balance 
+ABC: + drw -l 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + drf -l -z 
+ABC: + drw -l -z 
+ABC: + balance 
+ABC: + fraig_store 
+ABC: + fraig_restore 
+ABC: + amap -m -Q 0.1 -F 20 -A 20 -C 5000 
+ABC: + retime -D -D 10000 
+ABC: + &get -n 
+ABC: + &st 
+ABC: + &dch 
+ABC: + &nf 
+ABC: + &put 
+ABC: + buffer -N 10 -S 750.0 
+ABC: + upsize -D 10000 
+ABC: + dnsize -D 10000 
+ABC: + stime -p 
+ABC: WireLoad = "none"  Gates =   4324 (  9.6 %)   Cap =  9.0 ff (  3.9 %)   Area =    38694.61 ( 87.3 %)   Delay = 16705.79 ps  ( 15.2 %)               
+ABC: Path  0 --      22 : 0    2 pi                        A =   0.00  Df =  25.4  -14.6 ps  S =  40.8 ps  Cin =  0.0 ff  Cout =   7.3 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     433 : 1   10 sky130_fd_sc_hd__buf_6    A =  11.26  Df = 143.0  -12.0 ps  S =  70.3 ps  Cin =  4.6 ff  Cout =  29.6 ff  Cmax = 785.5 ff  G =  617  
+ABC: Path  2 --    2298 : 4    3 sky130_fd_sc_hd__and4_4   A =  11.26  Df = 375.7  -72.6 ps  S =  73.1 ps  Cin =  2.4 ff  Cout =  11.7 ff  Cmax = 531.9 ff  G =  472  
+ABC: Path  3 --    2301 : 4    2 sky130_fd_sc_hd__a211o_2  A =  10.01  Df = 656.0 -125.3 ps  S =  69.2 ps  Cin =  2.4 ff  Cout =  11.0 ff  Cmax = 325.0 ff  G =  449  
+ABC: Path  4 --    2302 : 3    2 sky130_fd_sc_hd__and3_4   A =  11.26  Df = 839.7  -60.3 ps  S =  46.6 ps  Cin =  2.4 ff  Cout =   5.0 ff  Cmax = 532.8 ff  G =  192  
+ABC: Path  5 --    2305 : 4    3 sky130_fd_sc_hd__o211a_2  A =  10.01  Df =1085.9 -121.2 ps  S =  73.5 ps  Cin =  2.4 ff  Cout =   8.7 ff  Cmax = 268.3 ff  G =  344  
+ABC: Path  6 --    2308 : 3    3 sky130_fd_sc_hd__o21ba_4  A =  16.27  Df =1288.3 -178.4 ps  S =  59.6 ps  Cin =  3.7 ff  Cout =  11.7 ff  Cmax = 452.3 ff  G =  294  
+ABC: Path  7 --    2311 : 4    2 sky130_fd_sc_hd__o211a_2  A =  10.01  Df =1526.7 -245.4 ps  S =  54.7 ps  Cin =  2.4 ff  Cout =   5.1 ff  Cmax = 268.3 ff  G =  203  
+ABC: Path  8 --    2312 : 3    2 sky130_fd_sc_hd__o21ba_4  A =  16.27  Df =1764.1 -321.0 ps  S =  66.8 ps  Cin =  3.7 ff  Cout =  14.0 ff  Cmax = 452.3 ff  G =  358  
+ABC: Path  9 --    2316 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =1854.6 -233.5 ps  S = 164.4 ps  Cin =  3.4 ff  Cout =  10.3 ff  Cmax = 140.1 ff  G =  296  
+ABC: Path 10 --    2317 : 4    2 sky130_fd_sc_hd__o2bb2a_2 A =  11.26  Df =2140.3 -254.9 ps  S =  89.4 ps  Cin =  1.8 ff  Cout =  13.2 ff  Cmax = 294.8 ff  G =  723  
+ABC: Path 11 --    2318 : 2    3 sky130_fd_sc_hd__nor2_2   A =   6.26  Df =2192.9 -176.7 ps  S = 132.7 ps  Cin =  4.4 ff  Cout =   9.7 ff  Cmax = 141.9 ff  G =  206  
+ABC: Path 12 --    2320 : 4    2 sky130_fd_sc_hd__a211o_2  A =  10.01  Df =2545.1 -354.6 ps  S =  70.4 ps  Cin =  2.4 ff  Cout =  11.5 ff  Cmax = 325.0 ff  G =  469  
+ABC: Path 13 --    2322 : 4    2 sky130_fd_sc_hd__a22o_2   A =  10.01  Df =2785.0 -433.3 ps  S =  76.4 ps  Cin =  2.3 ff  Cout =  11.6 ff  Cmax = 301.2 ff  G =  472  
+ABC: Path 14 --    2324 : 3    2 sky130_fd_sc_hd__o21a_2   A =   8.76  Df =3010.0 -501.9 ps  S =  84.8 ps  Cin =  2.4 ff  Cout =  13.7 ff  Cmax = 294.8 ff  G =  546  
+ABC: Path 15 --    2325 : 4    2 sky130_fd_sc_hd__a22o_4   A =  17.52  Df =3255.2 -598.9 ps  S =  71.3 ps  Cin =  4.6 ff  Cout =  18.1 ff  Cmax = 556.6 ff  G =  374  
+ABC: Path 16 --    2327 : 3    2 sky130_fd_sc_hd__o21ai_4  A =  16.27  Df =3410.9 -691.2 ps  S = 152.1 ps  Cin =  8.8 ff  Cout =  13.2 ff  Cmax = 224.3 ff  G =  144  
+ABC: Path 17 --    2328 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =3506.2 -629.8 ps  S = 164.4 ps  Cin =  3.4 ff  Cout =  10.3 ff  Cmax = 140.1 ff  G =  296  
+ABC: Path 18 --    2329 : 4    2 sky130_fd_sc_hd__o2bb2a_2 A =  11.26  Df =3791.9 -651.1 ps  S =  89.4 ps  Cin =  1.8 ff  Cout =  13.2 ff  Cmax = 294.8 ff  G =  723  
+ABC: Path 19 --    2330 : 2    2 sky130_fd_sc_hd__nor2_2   A =   6.26  Df =3838.8 -585.7 ps  S = 107.7 ps  Cin =  4.4 ff  Cout =   7.3 ff  Cmax = 141.9 ff  G =  154  
+ABC: Path 20 --    2332 : 4    2 sky130_fd_sc_hd__a211o_2  A =  10.01  Df =4185.5 -769.6 ps  S =  67.7 ps  Cin =  2.4 ff  Cout =  10.3 ff  Cmax = 325.0 ff  G =  423  
+ABC: Path 21 --    2333 : 4    2 sky130_fd_sc_hd__a2bb2o_2 A =  11.26  Df =4449.6 -855.6 ps  S =  72.2 ps  Cin =  1.7 ff  Cout =  10.3 ff  Cmax = 300.3 ff  G =  584  
+ABC: Path 22 --    2334 : 4    2 sky130_fd_sc_hd__a2bb2o_2 A =  11.26  Df =4722.3 -934.1 ps  S =  86.6 ps  Cin =  1.7 ff  Cout =  13.5 ff  Cmax = 300.3 ff  G =  760  
+ABC: Path 23 --    2336 : 3    2 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =4880.2-1026.4 ps  S = 116.0 ps  Cin =  4.6 ff  Cout =   6.1 ff  Cmax = 128.2 ff  G =  127  
+ABC: Path 24 --    2343 : 2    1 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =4932.1-1028.0 ps  S =  37.7 ps  Cin =  4.4 ff  Cout =   1.5 ff  Cmax = 295.7 ff  G =   33  
+ABC: Path 25 --    2344 : 2    2 sky130_fd_sc_hd__and2_2   A =   7.51  Df =5180.2  -44.3 ps  S =  74.7 ps  Cin =  1.5 ff  Cout =  10.9 ff  Cmax = 303.0 ff  G =  713  
+ABC: Path 26 --    2507 : 2    2 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =5361.0  -47.8 ps  S = 139.2 ps  Cin =  8.6 ff  Cout =   7.1 ff  Cmax = 130.0 ff  G =   79  
+ABC: Path 27 --    2508 : 3    3 sky130_fd_sc_hd__o21a_2   A =   8.76  Df =5531.7  -90.9 ps  S =  61.7 ps  Cin =  2.4 ff  Cout =   8.9 ff  Cmax = 294.8 ff  G =  348  
+ABC: Path 28 --    2873 : 2    2 sky130_fd_sc_hd__or2_2    A =   6.26  Df =5760.2  -98.9 ps  S =  76.0 ps  Cin =  1.5 ff  Cout =  10.1 ff  Cmax = 299.4 ff  G =  676  
+ABC: Path 29 --    2874 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =6007.6 -173.4 ps  S = 275.2 ps  Cin =  8.5 ff  Cout =  18.0 ff  Cmax = 121.8 ff  G =  203  
+ABC: Path 30 --    3035 : 3    3 sky130_fd_sc_hd__a21oi_4  A =  16.27  Df =6242.7 -126.4 ps  S = 162.7 ps  Cin =  8.8 ff  Cout =  15.7 ff  Cmax = 221.6 ff  G =  170  
+ABC: Path 31 --    3036 : 3    3 sky130_fd_sc_hd__or3_4    A =  11.26  Df =6462.5  -64.0 ps  S =  72.6 ps  Cin =  2.4 ff  Cout =   8.5 ff  Cmax = 531.9 ff  G =  347  
+ABC: Path 32 --    3045 : 2    2 sky130_fd_sc_hd__and2_2   A =   7.51  Df =6636.9 -114.8 ps  S =  38.9 ps  Cin =  1.5 ff  Cout =   3.1 ff  Cmax = 303.0 ff  G =  201  
+ABC: Path 33 --    3170 : 2    2 sky130_fd_sc_hd__and2_2   A =   7.51  Df =6807.7 -146.8 ps  S =  56.4 ps  Cin =  1.5 ff  Cout =   6.8 ff  Cmax = 303.0 ff  G =  438  
+ABC: Path 34 --    3171 : 4    2 sky130_fd_sc_hd__a211o_4  A =  17.52  Df =7120.3 -186.2 ps  S =  57.3 ps  Cin =  4.6 ff  Cout =   9.6 ff  Cmax = 559.4 ff  G =  198  
+ABC: Path 35 --    3178 : 4    3 sky130_fd_sc_hd__a31o_4   A =  17.52  Df =7367.4 -231.9 ps  S =  71.0 ps  Cin =  4.6 ff  Cout =  16.2 ff  Cmax = 499.0 ff  G =  335  
+ABC: Path 36 --    3225 : 2    2 sky130_fd_sc_hd__and2_4   A =   8.76  Df =7525.3 -244.9 ps  S =  43.8 ps  Cin =  2.4 ff  Cout =   7.3 ff  Cmax = 539.3 ff  G =  284  
+ABC: Path 37 --    3226 : 3    2 sky130_fd_sc_hd__o21a_2   A =   8.76  Df =7732.7 -315.5 ps  S =  73.0 ps  Cin =  2.4 ff  Cout =  11.0 ff  Cmax = 294.8 ff  G =  443  
+ABC: Path 38 --    3323 : 2    2 sky130_fd_sc_hd__or2_4    A =   8.76  Df =7998.5 -237.3 ps  S =  59.6 ps  Cin =  2.4 ff  Cout =  14.0 ff  Cmax = 514.5 ff  G =  560  
+ABC: Path 39 --    3326 : 2    2 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =8194.3 -207.2 ps  S = 209.6 ps  Cin =  8.6 ff  Cout =  13.5 ff  Cmax = 130.0 ff  G =  152  
+ABC: Path 40 --    3328 : 3    2 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =8409.7 -242.6 ps  S = 190.6 ps  Cin =  4.6 ff  Cout =  13.2 ff  Cmax = 128.2 ff  G =  275  
+ABC: Path 41 --    3330 : 3    3 sky130_fd_sc_hd__o21ba_4  A =  16.27  Df =8599.5 -205.8 ps  S =  83.4 ps  Cin =  3.7 ff  Cout =  19.2 ff  Cmax = 452.3 ff  G =  493  
+ABC: Path 42 --    3339 : 4    2 sky130_fd_sc_hd__o211a_4  A =  17.52  Df =8765.3 -125.3 ps  S =  44.9 ps  Cin =  4.7 ff  Cout =   6.1 ff  Cmax = 509.0 ff  G =  121  
+ABC: Path 43 --    3345 : 5    2 sky130_fd_sc_hd__o41ai_2  A =  16.27  Df =9120.1 -268.8 ps  S = 361.4 ps  Cin =  4.3 ff  Cout =   9.5 ff  Cmax =  62.3 ff  G =  202  
+ABC: Path 44 --    3349 : 5    5 sky130_fd_sc_hd__o311a_4  A =  21.27  Df =9366.7 -171.3 ps  S =  82.5 ps  Cin =  4.4 ff  Cout =  19.1 ff  Cmax = 539.3 ff  G =  416  
+ABC: Path 45 --    3388 : 4    4 sky130_fd_sc_hd__and4_4   A =  11.26  Df =9623.1 -228.4 ps  S =  92.7 ps  Cin =  2.4 ff  Cout =  18.6 ff  Cmax = 531.9 ff  G =  752  
+ABC: Path 46 --    3406 : 3    3 sky130_fd_sc_hd__a21o_4   A =  15.01  Df =9753.5 -154.4 ps  S =  45.5 ps  Cin =  4.5 ff  Cout =   9.9 ff  Cmax = 568.6 ff  G =  206  
+ABC: Path 47 --    3423 : 5    4 sky130_fd_sc_hd__o2111a_2 A =  12.51  Df =9988.5 -107.2 ps  S = 114.2 ps  Cin =  2.4 ff  Cout =  17.4 ff  Cmax = 299.4 ff  G =  703  
+ABC: Path 48 --    3449 : 2    4 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =10202.2  -10.9 ps  S = 327.1 ps  Cin =  8.5 ff  Cout =  22.5 ff  Cmax = 121.8 ff  G =  252  
+ABC: Path 49 --    3450 : 2    4 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =10553.4 -143.2 ps  S = 295.2 ps  Cin =  8.6 ff  Cout =  21.3 ff  Cmax = 130.0 ff  G =  238  
+ABC: Path 50 --    3451 : 3    3 sky130_fd_sc_hd__nor3b_2  A =  12.51  Df =10862.8 -256.2 ps  S = 246.3 ps  Cin =  3.4 ff  Cout =  11.5 ff  Cmax =  93.4 ff  G =  329  
+ABC: Path 51 --    3496 : 4    3 sky130_fd_sc_hd__a2bb2o_4 A =  20.02  Df =11067.8  -46.8 ps  S =  87.2 ps  Cin =  4.6 ff  Cout =  23.2 ff  Cmax = 502.6 ff  G =  483  
+ABC: Path 52 --    3503 : 3    6 sky130_fd_sc_hd__a21oi_4  A =  16.27  Df =11239.8  -91.0 ps  S = 200.8 ps  Cin =  8.8 ff  Cout =  21.7 ff  Cmax = 221.6 ff  G =  230  
+ABC: Path 53 --    3505 : 3    1 sky130_fd_sc_hd__or3_4    A =  11.26  Df =11504.5 -110.5 ps  S =  60.4 ps  Cin =  2.4 ff  Cout =   2.5 ff  Cmax = 531.9 ff  G =  102  
+ABC: Path 54 --    3506 : 1    8 sky130_fd_sc_hd__buf_4    A =   7.51  Df =11666.8 -142.1 ps  S =  78.6 ps  Cin =  2.4 ff  Cout =  24.2 ff  Cmax = 561.2 ff  G =  972  
+ABC: Path 55 --    3530 : 3    2 sky130_fd_sc_hd__mux2_4   A =  15.01  Df =11993.2 -228.3 ps  S =  72.7 ps  Cin =  3.2 ff  Cout =  16.9 ff  Cmax = 536.5 ff  G =  508  
+ABC: Path 56 --    3617 : 2    8 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =12175.3 -156.4 ps  S = 275.6 ps  Cin =  8.6 ff  Cout =  19.0 ff  Cmax = 130.0 ff  G =  209  
+ABC: Path 57 --    3618 : 1   10 sky130_fd_sc_hd__buf_1    A =   3.75  Df =12379.0  -33.4 ps  S = 337.1 ps  Cin =  2.1 ff  Cout =  28.3 ff  Cmax = 130.0 ff  G = 1262  
+ABC: Path 58 --    3960 : 4    1 sky130_fd_sc_hd__o31a_2   A =  10.01  Df =12745.7 -127.6 ps  S =  48.8 ps  Cin =  2.3 ff  Cout =   2.5 ff  Cmax = 285.7 ff  G =  100  
+ABC: Path 59 --    3961 : 5    1 sky130_fd_sc_hd__a221o_2  A =  11.26  Df =13089.8 -162.8 ps  S =  50.4 ps  Cin =  2.3 ff  Cout =   2.4 ff  Cmax = 299.4 ff  G =   98  
+ABC: Path 60 --    3962 : 5    5 sky130_fd_sc_hd__a32o_2   A =  11.26  Df =13393.3 -164.6 ps  S = 131.5 ps  Cin =  2.3 ff  Cout =  19.2 ff  Cmax = 264.6 ff  G =  792  
+ABC: Path 61 --    4004 : 5    2 sky130_fd_sc_hd__a2111o_2 A =  12.51  Df =13827.0 -268.7 ps  S =  72.3 ps  Cin =  2.4 ff  Cout =   6.1 ff  Cmax = 324.1 ff  G =  240  
+ABC: Path 62 --    4025 : 4    2 sky130_fd_sc_hd__a31oi_2  A =  12.51  Df =14001.2 -322.0 ps  S = 138.1 ps  Cin =  4.4 ff  Cout =   4.5 ff  Cmax = 118.1 ff  G =   97  
+ABC: Path 63 --    4027 : 3    2 sky130_fd_sc_hd__o21a_2   A =   8.76  Df =14148.7 -262.9 ps  S =  53.1 ps  Cin =  2.4 ff  Cout =   7.1 ff  Cmax = 294.8 ff  G =  278  
+ABC: Path 64 --    4035 : 4    3 sky130_fd_sc_hd__o211ai_2 A =  12.51  Df =14239.0 -137.2 ps  S = 173.0 ps  Cin =  4.4 ff  Cout =   8.6 ff  Cmax = 133.7 ff  G =  190  
+ABC: Path 65 --    4115 : 3    2 sky130_fd_sc_hd__a21o_2   A =   8.76  Df =14470.0  -47.2 ps  S =  83.8 ps  Cin =  2.4 ff  Cout =  14.3 ff  Cmax = 309.5 ff  G =  581  
+ABC: Path 66 --    4120 : 3    8 sky130_fd_sc_hd__a21oi_4  A =  16.27  Df =14722.6 -209.9 ps  S = 245.3 ps  Cin =  8.8 ff  Cout =  28.7 ff  Cmax = 221.6 ff  G =  307  
+ABC: Path 67 --    4314 : 5    2 sky130_fd_sc_hd__a2111o_2 A =  12.51  Df =15299.2 -252.5 ps  S =  65.4 ps  Cin =  2.4 ff  Cout =   4.0 ff  Cmax = 324.1 ff  G =  158  
+ABC: Path 68 --    4315 : 3    3 sky130_fd_sc_hd__a21o_2   A =   8.76  Df =15544.6 -346.1 ps  S =  81.4 ps  Cin =  2.4 ff  Cout =  13.9 ff  Cmax = 309.5 ff  G =  569  
+ABC: Path 69 --    4319 : 4    5 sky130_fd_sc_hd__a31o_4   A =  17.52  Df =15795.8 -250.5 ps  S =  74.7 ps  Cin =  4.6 ff  Cout =  17.5 ff  Cmax = 499.0 ff  G =  367  
+ABC: Path 70 --    4321 : 2    5 sky130_fd_sc_hd__nand2_4  A =  11.26  Df =15863.9 -135.4 ps  S =  63.9 ps  Cin =  8.7 ff  Cout =  12.6 ff  Cmax = 530.1 ff  G =  135  
+ABC: Path 71 --    4322 : 2    1 sky130_fd_sc_hd__or2_4    A =   8.76  Df =15973.3  -23.6 ps  S =  46.7 ps  Cin =  2.4 ff  Cout =   4.9 ff  Cmax = 514.5 ff  G =  193  
+ABC: Path 72 --    4323 : 1    9 sky130_fd_sc_hd__buf_6    A =  11.26  Df =16082.2   -4.0 ps  S =  60.6 ps  Cin =  4.6 ff  Cout =  24.4 ff  Cmax = 785.5 ff  G =  502  
+ABC: Path 73 --    4389 : 4    1 sky130_fd_sc_hd__a2bb2o_4 A =  20.02  Df =16301.6   -6.8 ps  S =  50.0 ps  Cin =  4.6 ff  Cout =   9.7 ff  Cmax = 502.6 ff  G =  197  
+ABC: Path 74 --    4391 : 4    1 sky130_fd_sc_hd__a211oi_4 A =  20.02  Df =16705.8 -345.4 ps  S = 437.5 ps  Cin =  8.8 ff  Cout =  33.4 ff  Cmax = 141.9 ff  G =  378  
+ABC: Start-point = pi21 (\In1_reg [0]).  End-point = po71 ($auto$rtlil.cc:2684:MuxGate$14025).
+ABC: + print_stats -m 
+ABC: netlist                       : i/o =  161/   96  lat =    0  nd =  4324  edge =  11013  area =38701.85  delay =81.00  lev = 81
+ABC: + write_blif /tmp/yosys-abc-y9Zq7g/output.blif 
+
+56.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a22o_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2a_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or3b_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21a_4 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a211o_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211a_4 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o41ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o311a_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a21o_4 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__or4_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and4_4 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o31a_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or4_4 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:       73
+ABC RESULTS:   sky130_fd_sc_hd__and4b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and3_4 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__or4b_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or4b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_2 cells:       54
+ABC RESULTS:   sky130_fd_sc_hd__mux4_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o311a_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand4bb_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a32o_2 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__o32a_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_2 cells:       40
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_2 cells:       34
+ABC RESULTS:   sky130_fd_sc_hd__and3b_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:       60
+ABC RESULTS:   sky130_fd_sc_hd__inv_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_4 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__or2b_2 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_4 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_2 cells:       20
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_2 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__a22o_2 cells:      146
+ABC RESULTS:   sky130_fd_sc_hd__a31o_4 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:       19
+ABC RESULTS:   sky130_fd_sc_hd__nand2_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_6 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__buf_4 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2a_2 cells:       35
+ABC RESULTS:   sky130_fd_sc_hd__mux2_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__buf_1 cells:      292
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2o_4 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or3b_2 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__a41o_2 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o31a_2 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__a221o_2 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_4 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_2 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__o22a_2 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o2111a_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a311o_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o221a_2 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__or3_4 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_2 cells:       24
+ABC RESULTS:   sky130_fd_sc_hd__a211o_2 cells:       42
+ABC RESULTS:   sky130_fd_sc_hd__or3_2 cells:       59
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2o_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__and2_4 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__buf_2 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__o211a_2 cells:       52
+ABC RESULTS:   sky130_fd_sc_hd__a2111oi_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:      275
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_2 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:      415
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:      251
+ABC RESULTS:   sky130_fd_sc_hd__a2111o_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:      134
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:      191
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:      149
+ABC RESULTS:   sky130_fd_sc_hd__and4_2 cells:      146
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:      138
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:       84
+ABC RESULTS:   sky130_fd_sc_hd__mux2_2 cells:       99
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:      139
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_2 cells:       98
+ABC RESULTS:   sky130_fd_sc_hd__and4bb_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__or2_4 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:      437
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:      323
+ABC RESULTS:   sky130_fd_sc_hd__nor2_4 cells:        5
+ABC RESULTS:        internal signals:     6060
+ABC RESULTS:           input signals:      161
+ABC RESULTS:          output signals:       96
+Removing temp directory.
+
+57. Executing SETUNDEF pass (replace undef values with defined constants).
+
+58. Executing HILOMAP pass (mapping to constant drivers).
+
+59. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+60. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac..
+Removed 3 unused cells and 6373 unused wires.
+<suppressed ~90 debug messages>
+
+61. Executing INSBUF pass (insert buffer cells for connected wires).
+Add mac/$auto$insbuf.cc:97:execute$18405: \F1.sign_b -> \MacOut [31]
+
+62. Executing CHECK pass (checking for obvious problems).
+Checking module mac...
+Found and reported 0 problems.
+
+63. Printing statistics.
+
+=== mac ===
+
+   Number of wires:               4394
+   Number of wire bits:           4487
+   Number of public wires:          70
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4421
+     sky130_fd_sc_hd__a2111o_2       5
+     sky130_fd_sc_hd__a2111oi_2      4
+     sky130_fd_sc_hd__a211o_2       42
+     sky130_fd_sc_hd__a211o_4        1
+     sky130_fd_sc_hd__a211oi_2      20
+     sky130_fd_sc_hd__a211oi_4       1
+     sky130_fd_sc_hd__a21bo_2       24
+     sky130_fd_sc_hd__a21boi_2      17
+     sky130_fd_sc_hd__a21o_2       191
+     sky130_fd_sc_hd__a21o_4         9
+     sky130_fd_sc_hd__a21oi_2      149
+     sky130_fd_sc_hd__a21oi_4        5
+     sky130_fd_sc_hd__a221o_2       29
+     sky130_fd_sc_hd__a221oi_2       1
+     sky130_fd_sc_hd__a22o_2       146
+     sky130_fd_sc_hd__a22o_4         1
+     sky130_fd_sc_hd__a22oi_2       54
+     sky130_fd_sc_hd__a2bb2o_2       7
+     sky130_fd_sc_hd__a2bb2o_4       3
+     sky130_fd_sc_hd__a2bb2oi_2      1
+     sky130_fd_sc_hd__a311o_2        3
+     sky130_fd_sc_hd__a311oi_2       1
+     sky130_fd_sc_hd__a31o_2        33
+     sky130_fd_sc_hd__a31o_4         3
+     sky130_fd_sc_hd__a31oi_2        9
+     sky130_fd_sc_hd__a32o_2        13
+     sky130_fd_sc_hd__a32oi_2        2
+     sky130_fd_sc_hd__a41o_2        10
+     sky130_fd_sc_hd__and2_2       275
+     sky130_fd_sc_hd__and2_4        10
+     sky130_fd_sc_hd__and2b_2       60
+     sky130_fd_sc_hd__and3_2       134
+     sky130_fd_sc_hd__and3_4         6
+     sky130_fd_sc_hd__and3b_2        3
+     sky130_fd_sc_hd__and4_2       146
+     sky130_fd_sc_hd__and4_4         8
+     sky130_fd_sc_hd__and4b_2        1
+     sky130_fd_sc_hd__and4bb_2       3
+     sky130_fd_sc_hd__buf_1        292
+     sky130_fd_sc_hd__buf_2         19
+     sky130_fd_sc_hd__buf_4          4
+     sky130_fd_sc_hd__buf_6         16
+     sky130_fd_sc_hd__dfxtp_2       96
+     sky130_fd_sc_hd__inv_2         84
+     sky130_fd_sc_hd__inv_4          2
+     sky130_fd_sc_hd__mux2_1         2
+     sky130_fd_sc_hd__mux2_2        99
+     sky130_fd_sc_hd__mux2_4         2
+     sky130_fd_sc_hd__mux4_2         3
+     sky130_fd_sc_hd__nand2_2      415
+     sky130_fd_sc_hd__nand2_4        1
+     sky130_fd_sc_hd__nand2b_2      12
+     sky130_fd_sc_hd__nand2b_4       2
+     sky130_fd_sc_hd__nand3_2       29
+     sky130_fd_sc_hd__nand3b_2       2
+     sky130_fd_sc_hd__nand4_2       19
+     sky130_fd_sc_hd__nand4bb_2      2
+     sky130_fd_sc_hd__nor2_2       437
+     sky130_fd_sc_hd__nor2_4         5
+     sky130_fd_sc_hd__nor2b_2       11
+     sky130_fd_sc_hd__nor3_2        73
+     sky130_fd_sc_hd__nor3b_2        4
+     sky130_fd_sc_hd__nor4_2         2
+     sky130_fd_sc_hd__o2111a_2       7
+     sky130_fd_sc_hd__o2111ai_2      1
+     sky130_fd_sc_hd__o211a_2       52
+     sky130_fd_sc_hd__o211a_4        3
+     sky130_fd_sc_hd__o211ai_2      12
+     sky130_fd_sc_hd__o21a_2       138
+     sky130_fd_sc_hd__o21a_4         3
+     sky130_fd_sc_hd__o21ai_2       98
+     sky130_fd_sc_hd__o21ai_4        4
+     sky130_fd_sc_hd__o21ba_2       40
+     sky130_fd_sc_hd__o21ba_4        4
+     sky130_fd_sc_hd__o21bai_2      34
+     sky130_fd_sc_hd__o21bai_4       1
+     sky130_fd_sc_hd__o221a_2       12
+     sky130_fd_sc_hd__o221ai_2       1
+     sky130_fd_sc_hd__o22a_2        10
+     sky130_fd_sc_hd__o22ai_2        3
+     sky130_fd_sc_hd__o2bb2a_2      35
+     sky130_fd_sc_hd__o2bb2a_4       1
+     sky130_fd_sc_hd__o2bb2ai_2      1
+     sky130_fd_sc_hd__o311a_2        3
+     sky130_fd_sc_hd__o311a_4        2
+     sky130_fd_sc_hd__o31a_2        13
+     sky130_fd_sc_hd__o31a_4         2
+     sky130_fd_sc_hd__o31ai_2        6
+     sky130_fd_sc_hd__o32a_2         8
+     sky130_fd_sc_hd__o41ai_2        1
+     sky130_fd_sc_hd__or2_2        251
+     sky130_fd_sc_hd__or2_4         17
+     sky130_fd_sc_hd__or2b_2        33
+     sky130_fd_sc_hd__or3_2         59
+     sky130_fd_sc_hd__or3_4         17
+     sky130_fd_sc_hd__or3b_2         9
+     sky130_fd_sc_hd__or3b_4         2
+     sky130_fd_sc_hd__or4_2          4
+     sky130_fd_sc_hd__or4_4          4
+     sky130_fd_sc_hd__or4b_2         2
+     sky130_fd_sc_hd__or4b_4         1
+     sky130_fd_sc_hd__xnor2_2      323
+     sky130_fd_sc_hd__xnor2_4        2
+     sky130_fd_sc_hd__xor2_2       139
+
+   Chip area for module '\mac': 40741.574400
+
+64. Executing Verilog backend.
+Dumping module `\mac'.
+
+65. Executing JSON backend.
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: d257644f6f, CPU: user 6.02s system 0.08s, MEM: 164.86 MB peak
+Yosys 0.38 (git sha1 543faed9c8c, clang++ 17.0.6 -fPIC -Os)
+Time spent: 48% 2x abc (5 sec), 14% 24x opt_clean (1 sec), ...
